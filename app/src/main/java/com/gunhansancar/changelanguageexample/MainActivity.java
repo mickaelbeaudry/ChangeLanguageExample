@@ -41,12 +41,17 @@ public class MainActivity extends AppCompatActivity {
 
 	@OnClick(R.id.toTRButton)
 	public void onChangeToTRClicked() {
-		updateViews("tr");
+//		updateViews("tr");
+		LocaleHelper.setLocale(this, "tr");
+		recreate();  // ici au lieu du recreate, on close l'activité qui sert a setter la langue
+		// pis si on veut le modifier live, on fait comme dans son exemple avec le updateViews.
 	}
 
 	@OnClick(R.id.toENButton)
 	public void onChangeToENClicked() {
-		updateViews("en");
+//		updateViews("en");
+		LocaleHelper.setLocale(this, "en");
+		recreate();
 	}
 
 	private void updateViews(String languageCode) {
